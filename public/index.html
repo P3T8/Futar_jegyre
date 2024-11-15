@@ -1,21 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Futár</title>
-    <script src="script.js"></script>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futár Adatkezelés</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>Futás</header>
-        <form action="#" method="get">
-            <button type="button" id="create">Create</button>
-            <button type="button" id="read">Read</button>
-            <button type="button" id="update">Update</button>
-            <button type="button" id="delete">Delete</button>
-        </form>
-    </div>
+  <h1>Futár Adatkarbantartó Alkalmazás</h1>
+
+  <!-- Új futár hozzáadása -->
+  <div class="form-container">
+    <h2>Új futár hozzáadása</h2>
+    <form id="addFutarForm">
+      <label for="fazon">Fazon:</label>
+      <input type="text" id="fazon" name="fazon" required>
+      
+      <label for="fnev">Név:</label>
+      <input type="text" id="fnev" name="fnev">
+      
+      <label for="ftel">Telefon:</label>
+      <input type="text" id="ftel" name="ftel" required>
+      
+      <button type="submit">Hozzáadás</button>
+    </form>
+  </div>
+
+  <!-- Futárok listája -->
+  <div class="list-container">
+    <h2>Futárok listája</h2>
+    <table id="futarTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Fazon</th>
+          <th>Név</th>
+          <th>Telefon</th>
+          <th>Műveletek</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dinamikusan feltöltve JavaScript-tel -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
