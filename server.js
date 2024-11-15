@@ -38,12 +38,13 @@ app.get('/futar', (req, res) => {
   });
 });
 
+
 // 2. Új futar hozzáadása
 app.post('/futar', (req, res) => {
   const { fazon, fnev, ftel } = req.body;
 
   if (!fazon || !ftel) {
-    return res.status(400).json({ error: 'Név és ár kötelező!' });
+    return res.status(400).json({ error: 'Az azonosító és a telefonszám kötelező!' });
   }
 
   db.query('INSERT INTO futar (fazon, fnev, ftel) VALUES (?, ?, ?)', [fazon, fnev, ftel], (err, result) => {
@@ -54,13 +55,14 @@ app.post('/futar', (req, res) => {
   });
 });
 
+
 // 3. futar módosítása
 app.put('/futar/:id', (req, res) => {
   const { id } = req.params;
   const { fazon, fnev, ftel } = req.body;
 
   if (!fazon || !ftel) {
-    return res.status(400).json({ error: 'Azonosító és telefonszám!' });
+    return res.status(400).json({ error: 'Az azonosító és a telefonszám kötelező!' });
   }
 
   db.query('UPDATE futar SET fazon = ?, fnev = ?, ftel = ? WHERE id = ?', [fazon, fnev, ftel, id], (err, result) => {
@@ -75,6 +77,7 @@ app.put('/futar/:id', (req, res) => {
     res.json({ id, fazon, fnev, ftel });
   });
 });
+
 
 // 4. futar törlése
 app.delete('/futar/:id', (req, res) => {
